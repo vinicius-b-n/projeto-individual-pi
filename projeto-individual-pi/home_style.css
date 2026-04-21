@@ -1,5 +1,5 @@
 * {
-  outline: 1px solid green;
+  
 }
 
 body {
@@ -11,9 +11,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 60px; /* mais espaço lateral */
+  padding: 15px 60px;
   background-color: #000;
-  border-bottom: 1px solid #111; /* linha sutil */
+  border-bottom: 1px solid #111;
 
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@ body {
 }
 
 .logo img {
-  width: 200px; /* tamanho ideal */
+  width: 200px; 
 }
 
 .logo h1 {
@@ -134,7 +134,7 @@ body {
   transform: translate(-50%, -50%);
 
   display: flex;
-  flex-direction: column; /* 👈 ISSO resolve 80% do problema */
+  flex-direction: column;
 
   align-items: center;
   justify-content: center;
@@ -149,7 +149,7 @@ body {
 }
 
 .conteudo_banner h3 {
-  margin-top: 5px; /* ou 0 se quiser grudado MESMO */
+  margin-top: 5px;
   font-family: monospace;
 }
 
@@ -162,13 +162,13 @@ body {
 
 .banner_shinigami {
   width: 100%;
-  height: 250px; /* altura do banner */
+  height: 250px; 
 
-  background-color: red; /* 🔴 retângulo vermelho */
+  background-color: red;
 
-  display: flex; /* coloca tudo lado a lado */
-  align-items: center; /* centraliza na vertical */
-  justify-content: space-around; /* espaço entre imagem e texto */
+  display: flex; 
+  align-items: center; 
+  justify-content: space-around; 
 
   padding: 20px;
   box-sizing: border-box;
@@ -195,9 +195,14 @@ body {
   position: relative;
   padding: 60px 40px;
   margin-bottom: 40px;
+  display: flex;
 }
 
-/* SUBTÍTULO (quadrado vermelho) */
+.secao-header{
+  display: flex;
+}
+
+
 .tag {
   background-color: #c40000;
   color: #ffd700;
@@ -211,24 +216,23 @@ body {
   font-size: 30px;
 }
 
-/* CONTEÚDO FLEX */
+
 .secao-conteudo {
   display: flex;
   align-items: center;
   gap: 40px;
 }
 
-/* TEXTO */
+
 .texto_informativo {
   font-size: 17px;
   margin-top: 8%;
   max-width: 1000px;
-
-  text-indent: 40px; /* Ajuste o valor conforme desejar */
+  text-indent: 40px; 
   margin-bottom: 15px; /* Espaço entre os parágrafos */
 }
 
-/* IMAGEM */
+
 .imagem_informativo {
   display: flex;
   justify-content: center;
@@ -238,8 +242,27 @@ body {
 .imagem_informativo img {
   max-width: 100%;
   border-radius: 1px;
-  width: 460px;
-  height: 500px;
+  width: 360px;
+  height: 400px;
   object-fit: cover;
   border: 3px solid #c40000;
+}
+
+.texto_informativo p, h3 {
+  margin-bottom: -8px; /* Espaço entre os parágrafos */
+  text-align: justify;
+  
+}
+
+.texto_informativo h3 {
+  text-indent: 0px; 
+}
+
+.topo {
+  margin-top: 75px;
+}
+
+.corte img {
+  height: 490px;
+  width: 6000px;
 }
