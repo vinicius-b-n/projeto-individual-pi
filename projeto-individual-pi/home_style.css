@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-/* HEADER */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -23,7 +23,7 @@ body {
   z-index: 1000;
 }
 
-/* LOGO */
+
 .logo {
   display: flex;
   align-items: center;
@@ -40,7 +40,7 @@ body {
   font-weight: bold;
 }
 
-/* MENU */
+
 .menu {
   display: flex;
   align-items: center;
@@ -66,13 +66,13 @@ body {
   color: #444;
 }
 
-/* BOTÕES */
+
 .buttons {
   display: flex;
   gap: 15px;
 }
 
-/* LOGIN */
+
 .login {
   background: transparent;
   border: 2px solid gold;
@@ -88,7 +88,7 @@ body {
   color: black;
 }
 
-/* CADASTRAR */
+
 .cadastro {
   background: red;
   border: none;
@@ -151,6 +151,7 @@ body {
 .conteudo_banner h3 {
   margin-top: 5px;
   font-family: monospace;
+  margin-left: 320px;
 }
 
 .conteudo_banner img {
