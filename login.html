@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="login_style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="img/logo.png" />
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="active">Home</a>
+        <span>|</span>
+        <a href="#">Personagens</a>
+        <span>|</span>
+        <a href="#">Quiz</a>
+        <span>|</span>
+        <a href="#">Autor</a>
+      </nav>
+
+      <div class="buttons">
+        <button class="login">Login</button>
+        <button class="cadastro">Cadastrar</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <div class="form_login">
+          <h1>Login</h1>
+          <div class="caixa_input">
+            <input id="email_inserido" placeholder="Email" type="email" />
+          </div>
+          <div class="caixa_input">
+            <input id="senha_inserida" placeholder="Senha" type="password" />
+          </div>
+          <div class="button_entrar">
+            <button onclick="logar()">Entrar</button>
+          </div>
+          <div class="cadastrar">
+            <p>Não tem uma conta? <a href="#">Cadastrar-se</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="shinigami">
+    <img src="img_cadastro/shinigami_login.png" alt="">
+  </div>-->
+    </div>
+  </body>
+
+  <script>
+    function logar() {
+      let email = email_inserido.value;
+      let senha = senha_inserida.value;
+
+      let usuarios_cadastrados = [
+        { email: "viniciuscasual@gmail.com", senha: "vinivinicasual" },
+        { email: "lucas_white@gmail.com", senha: "yngeyang" },
+        { email: "lucas_black@gmail.com", senha: "yangeyng" },
+      ];
+
+      let login_valido = false;
+
+      if (email == "" || senha == "") {
+        alert(`Preencha todos od dados do campo!`);
+        return;
+      }
+
+      for (let i = 0; i < usuarios_cadastrados.length; i++) {
+        if (
+          email === usuarios_cadastrados[i].email &&
+          senha === usuarios_cadastrados[i].senha
+        ) {
+          loginValido = true;
+          break;
+        }
+
+        if (loginValido) {
+          alert("Login realizado com sucesso! bem vindo de volta ao Diário AMAAN");
+          window.location.href = "home.html";
+        } else {
+          alert("Email ou senha inválidos! tente novamente");
+        }
+      }
+    }
+  </script>
+</html>

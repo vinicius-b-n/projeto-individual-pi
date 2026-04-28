@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="cadastro_style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="img/logo.png" />
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="active">Home</a>
+        <span>|</span>
+        <a href="#">Personagens</a>
+        <span>|</span>
+        <a href="#">Quiz</a>
+        <span>|</span>
+        <a href="#">Autor</a>
+      </nav>
+
+      <div class="buttons">
+        <button class="login">Login</button>
+        <button class="cadastro">Cadastrar</button>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <div class="form_login">
+          <h1>Cadastro</h1>
+          <div class="caixa_input">
+            <input id="nome_inserido" placeholder="Nome" type="text" />
+          </div>
+          <div class="caixa_input">
+            <input id="email_inserido" placeholder="Email" type="email" />
+          </div>
+          <div class="caixa_input">
+            <input id="senha_inserida" placeholder="Senha" type="password" />
+          </div>
+          <div class="caixa_input">
+            <input id="confirmar_senha_inserida" placeholder="confirme sua senha" type="password" />
+          </div>
+          <div class="button_entrar">
+            <button onclick="cadastrar()">Criar</button>
+          </div>
+          <div class="cadastrar">
+            <p>Já tem conta? <a href="#">Entrar</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="shinigami">
+    <img src="img_cadastro/shinigami_login.png" alt="">
+  </div>-->
+    </div>
+  </body>
+
+  <script>
+    function cadastrar() {
+      
+      let nome = nome_inserido.value
+      let email = email_inserido.value
+      let senha = senha_inserida.value
+      let senha_confirm = confirmar_senha_inserida.value
+
+      if (nome == "" || email == "" || senha == "" || senha_confirm == "") {
+        alert(`preencha todos os campos`)
+      }
+      else if (!email.includes("@") || !email.include(".com")) {
+        alert(`Detectamos ausênsia de "@" ou ".com" no seu email. Verifique o campo e tente novamente`)
+      }
+      else if (senha_confirm != senha) {
+        alert("A senha e a confirmação da senha estão diferentes, confirme os campos e tente novamente")
+      }
+      else{
+        alert("cadastro feito, bem vindo ao Diário AMAAN")
+      }
+
+    }
+  </script>
+</html>
