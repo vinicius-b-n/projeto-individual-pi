@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+/*font-family: "Henny Penny", system-ui;*/
+
+* {
+    outline: 1px solid rgb(0, 72, 255);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+ background-color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 60px;
+  background-color: #000;
+  border-bottom: 1px solid #111;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo img {
+  width: 200px; 
+}
+
+.logo h1 {
+  color: red;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+.menu .active {
+  color: gold;
+}
+
+.menu span {
+  color: #444;
+}
+
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+
+.login {
+  background: transparent;
+  border: 2px solid gold;
+  color: gold;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login:hover {
+  background: gold;
+  color: black;
+}
+
+
+.cadastro {
+  background: red;
+  border: none;
+  color: gold;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.cadastro:hover {
+  background: darkred;
+}
+
+.titulo {
+  margin-top: 85px; 
+  background-color: darkred;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10%;
+}
+
+.titulo h1 {
+  margin-left: 3.5%;
+  font-size: 42px;
+  color: gold;
+  font-family: "Henny Penny", system-ui;
+  margin-top: 0;             
+}
+
+.opcao{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+select {
+  width: 200px;
+  height: 30px;
+  padding: 5px;
+
+  font-size: 16px;
+  border: 2px solid gold;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  background-color: black;
+  color: white;
+
+  cursor: pointer;
+}
+
+.opcao button {
+  width: 100px;
+  height: 30px;
+  padding: 5px;
+
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  background-color: gold;
+  color:black;
+
+  cursor: pointer;
+}

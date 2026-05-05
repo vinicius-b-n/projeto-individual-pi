@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Cadastro</title>
     <link rel="stylesheet" href="cadastro_style.css" />
   </head>
   <body>
@@ -29,6 +29,17 @@
     </header>
 
     <div class="container">
+      <div class="shinigami">
+        <img src="../img_autentificacao/shinigami_cadastro.png">
+        <div class="shinigami_msg">
+          <h2>Olá, visitante!!!</h2>
+          <p>
+            É sempre bom ver um rosto novo por aqui! Interessado em saber sobre
+            toda a baderna e confusão que eu e meus alunos nos enfiamos?
+            Cadastre-se já e venha saber do dia-a-dia no <p><i><b>Diário AMAAN!</b></i></p>
+          </p>
+        </div>
+      </div>
       <div class="card">
         <div class="form_login">
           <h1>Cadastro</h1>
@@ -42,13 +53,17 @@
             <input id="senha_inserida" placeholder="Senha" type="password" />
           </div>
           <div class="caixa_input">
-            <input id="confirmar_senha_inserida" placeholder="confirme sua senha" type="password" />
+            <input
+              id="confirmar_senha_inserida"
+              placeholder="confirme sua senha"
+              type="password"
+            />
           </div>
           <div class="button_entrar">
             <button onclick="cadastrar()">Criar</button>
           </div>
           <div class="cadastrar">
-            <p>Já tem conta? <a href="#">Entrar</a></p>
+            <p>Já tem conta? <a href="login.html">Entrar</a></p>
           </div>
         </div>
       </div>
@@ -60,25 +75,25 @@
 
   <script>
     function cadastrar() {
-      
-      let nome = nome_inserido.value
-      let email = email_inserido.value
-      let senha = senha_inserida.value
-      let senha_confirm = confirmar_senha_inserida.value
+      let nome = nome_inserido.value;
+      let email = email_inserido.value;
+      let senha = senha_inserida.value;
+      let senha_confirm = confirmar_senha_inserida.value;
 
       if (nome == "" || email == "" || senha == "" || senha_confirm == "") {
-        alert(`preencha todos os campos`)
+        alert(`preencha todos os campos`);
+      } else if (!email.includes("@") || !email.includes(".com")) {
+        alert(
+          `Detectamos ausênsia de "@" ou ".com" no seu email. Verifique o campo e tente novamente`,
+        );
+      } else if (senha_confirm != senha) {
+        alert(
+          "A senha e a confirmação da senha estão diferentes, confirme os campos e tente novamente",
+        );
+      } else {
+        alert("cadastro feito, bem vindo ao Diário AMAAN");
+        window.location.href = "login.html";
       }
-      else if (!email.includes("@") || !email.include(".com")) {
-        alert(`Detectamos ausênsia de "@" ou ".com" no seu email. Verifique o campo e tente novamente`)
-      }
-      else if (senha_confirm != senha) {
-        alert("A senha e a confirmação da senha estão diferentes, confirme os campos e tente novamente")
-      }
-      else{
-        alert("cadastro feito, bem vindo ao Diário AMAAN")
-      }
-
     }
   </script>
 </html>

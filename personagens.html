@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personagens</title>
+    <link rel="stylesheet" href="personagens_style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <img src="img/logo.png" />
+      </div>
+
+      <nav class="menu">
+        <a href="#" class="active">Home</a>
+        <span>|</span>
+        <a href="#">Personagens</a>
+        <span>|</span>
+        <a href="#">Quiz</a>
+        <span>|</span>
+        <a href="#">Autor</a>
+      </nav>
+
+      <div class="buttons">
+        <button class="login">Login</button>
+        <button class="cadastro">Cadastrar</button>
+      </div>
+    </header>
+
+    <div class="titulo">
+      <h1>PERSONAGENS</h1>
+      <div class="opcao">
+        <select id="frutas">
+          <option value="">Selecione</option>
+          <option value="maca">Maçã</option>
+          <option value="banana">Banana</option>
+          <option value="laranja">Laranja</option>
+        </select>
+        <button class="escolher" onclick="mostrarEscolha()">Pesquisar</button>
+      </div>
+    </div>
+  </body>
+</html>

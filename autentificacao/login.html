@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login_style.css" />
   </head>
   <body>
@@ -29,6 +29,7 @@
     </header>
 
     <div class="container">
+            
       <div class="card">
         <div class="form_login">
           <h1>Login</h1>
@@ -42,9 +43,20 @@
             <button onclick="logar()">Entrar</button>
           </div>
           <div class="cadastrar">
-            <p>Não tem uma conta? <a href="#">Cadastrar-se</a></p>
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastrar-se</a></p>
           </div>
         </div>
+      </div>
+      <div class="shinigami">
+        <div class="shinigami_msg">
+          <h2>Bem vindo de volta!!!</h2>
+          <p>
+            Fico feliz que tenha retornado, modéstia parte... não tem como ficar longe por muito tempo. 
+            Preencha seus dados para
+            que possamos reestabelecer sua conexão com o<p><i><b>Diário AMAAN!</b></i></p>
+          </p>
+        </div>
+        <img src="../img_autentificacao/shinigami_login.png">
       </div>
       <!-- <div class="shinigami">
     <img src="img_cadastro/shinigami_login.png" alt="">
@@ -79,7 +91,7 @@
           break;
         }
 
-        if (loginValido) {
+        if (login_valido) {
           alert("Login realizado com sucesso! bem vindo de volta ao Diário AMAAN");
           window.location.href = "home.html";
         } else {
