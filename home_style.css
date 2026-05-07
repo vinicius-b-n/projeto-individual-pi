@@ -1,5 +1,10 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+/*font-family: "Henny Penny", system-ui;*/
 
+* {
+    outline: 1px solid rgb(0, 72, 255); 
+    margin: 0;
+    padding: 0; 
 }
 
 body {
@@ -266,4 +271,41 @@ body {
 .corte img {
   height: 490px;
   width: 6000px;
+}
+
+.imagem_banner_school {
+  background-image: url(img/banner_escola.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner_school {
+  height: 350px;
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;  
+  backdrop-filter: brightness(35%) blur(2px);
+}
+
+.maka_amaan img{
+ width: 400px;
+ height: 500px;
+}
+
+.titulo_amaan{
+  font-size: 500%;
+  color: white;
+}
+
+.textinho_amaan{
+ 
+}
+
+.textinho_amaan p{
+  color: white;
+  font-size: 45px;
+  
 }
