@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro_style.css" />
+    <link rel="stylesheet" href="navbar.css">
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <div class="container">
+      <div class="shinigami">
+        <img src="assets/imgs/img_autentificacao/shinigami_cadastro.png">
+        <div class="shinigami_msg">
+          <h2>Olá, visitante!!!</h2>
+          <p>
+            É sempre bom ver um rosto novo por aqui! Interessado em saber sobre
+            toda a baderna e confusão que eu e meus alunos nos enfiamos?
+            Cadastre-se já e venha saber do dia-a-dia no <p><i><b>Diário AMAAN!</b></i></p>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="form_login">
+          <h1>Cadastro</h1>
+
+          <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+              <span id="mensagem_erro"></span>
+            </div>
+          </div>
+          <div id="div_erros_login"></div>
+
+          <div class="caixa_input">
+            <input id="nome_inserido" placeholder="Nome" type="text" />
+          </div>
+          <div class="caixa_input">
+            <input id="email_inserido" placeholder="Email" type="email" />
+          </div>
+          <div class="caixa_input">
+            <input id="senha_inserida" placeholder="Senha" type="password" />
+          </div>
+          <div class="caixa_input">
+            <input
+              id="confirmar_senha_inserida"
+              placeholder="confirme sua senha"
+              type="password"
+            />
+          </div>
+          <div class="button_entrar">
+            <button onclick="cadastrar()">Criar</button>
+          </div>
+          <div id="div_aguardar" class="loading-div">
+           <!-- <img src="./assets/circle-loading.gif" id="loading-gif" /> -->
+          </div>
+          <div class="cadastrar">
+            <p>Já tem conta? <a href="login.html">Entrar</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="shinigami">
+    <img src="img_cadastro/shinigami_login.png" alt="">
+  </div>-->
+    </div>
+  </body>
+
+  <script>
+
+    
+    // function cadastrar() {
+    //   let nome = nome_inserido.value;
+    //   let email = email_inserido.value;
+    //   let senha = senha_inserida.value;
+    //   let senha_confirm = confirmar_senha_inserida.value;
+
+    //   if (nome == "" || email == "" || senha == "" || senha_confirm == "") {
+    //     alert(`preencha todos os campos`);
+    //   } else if (!email.includes("@") || !email.includes(".com")) {
+    //     alert(
+    //       `Detectamos ausênsia de "@" ou ".com" no seu email. Verifique o campo e tente novamente`,
+    //     );
+    //   } else if (senha_confirm != senha) {
+    //     alert(
+    //       "A senha e a confirmação da senha estão diferentes, confirme os campos e tente novamente",
+    //     );
+    //   } else {
+    //     alert("cadastro feito, bem vindo ao Diário AMAAN");
+    //     window.location.href = "login.html";
+    //   }
+    // }
+
+  fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+
+    // Array para armazenar empresas cadastradas para validação de código de ativação 
+  
+    // let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_inserido.value;
+    var emailVar = email_inserido.value;
+    var senhaVar = senha_inserida.value;
+    var confirmacaoSenhaVar = confirmar_senha_inserida.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Preencha todos os campos)";
+
+      finalizarAguardar(); 
+      return false;
+
+      
+    } 
+    
+    else if (senhaVar != confirmacaoSenhaVar) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(confirmação de senha divergente da senha)";
+
+      finalizarAguardar(); 
+      return false;
+    }
+    
+    // // else if (emailVar == usuario.email) {
+    // //   mensagem_erro.innerHTML =
+    // //     "(Email já cadastrado)";
+
+    //   finalizarAguardar(); 
+    //   return false;
+    // }
+
+    else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // // Verificando se o código de ativação é de alguma empresa cadastrada
+    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
+    //     console.log("Código de ativação válido.");
+    //     break;
+    //   } else {
+    //     cardErro.style.display = "block";
+    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+    //     finalizarAguardar();
+    //   }
+    // }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+  </script>
+</html>

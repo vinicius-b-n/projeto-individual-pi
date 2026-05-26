@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personagens</title>
+    <link rel="stylesheet" href="css/personagens_style.css" />
+    <link rel="stylesheet" href="navbar.css" />
+  </head>
+
+  <body>
+    <div id="navbar"></div>
+    <div class="titulo">
+      <h1>PERSONAGENS</h1>
+      <!-- <div class="opcao">
+      <select id="frutas">
+        <option value="">Selecione</option>
+        <option value="maca">Maligno</option>
+        <option value="banana">Bondoso</option>
+        <option value="laranja">Neutro</option>
+      </select>
+      <button class="escolher" onclick="mostrarEscolha()">Pesquisar</button>
+    </div> -->
+    </div>
+    <div id="quadro_personagens">
+      <div class="card-personagem">
+        <img
+          src="${personagem.url_imagem}"
+          class="img-personagem"
+          alt="${personagem.Personagem}"
+        />
+        <h2 class="nome-personagem">${personagem.Personagem}</h2>
+        <div class="raca">${personagem.raca}</div>
+      </div>
+    </div>
+
+    <script>
+      var email = sessionStorage.getItem("EMAIL_USUARIO");
+      var id_user = sessionStorage.getItem("ID_USUARIO");
+
+      if (id_user != null) {
+        console.log(`oi`);
+      }
+
+      console.log(email, id_user);
+
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+
+      function carregar_personagens() {
+        fetch("/personagens/exibir_personagens") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController
+          .then((response) => response.json()) //transformando o json de controller em uma variavel
+          .then((personagens) => {
+            // variavel personagens guarda o jason de personagensController
+            mostrar_personagens(personagens); //passsa a variavel com valor do json como parametro para a funcao mostrar_personagens
+          })
+          .catch((error) =>
+            console.error("erro ao carregar personagens na tela", error),
+          );
+      }
+
+      //personagens no json
+      function mostrar_personagens(personagens) {
+        const conteudo_personagens =
+          document.getElementById("quadro_personagens");
+        conteudo_personagens.innerHTML = "";
+
+        personagens.forEach((personagem) => {
+          
+          // antes de criar o html
+          let estiloKishin; // Cria a variável vazia
+
+          if (personagem.raca === "Kishin") {
+            estiloKishin = 'style="background-image: url(https://w0.peakpx.com/wallpaper/636/292/HD-wallpaper-liquid-red-patterns.jpg); border: 5px solid red;"';
+          } else {
+            estiloKishin = "";
+          }
+
+          //já com a cor aplicada se for kishin
+          conteudo_personagens.innerHTML += `
+          <div class="card-personagem" ${estiloKishin}>
+            <img src="${personagem.url_imagem}" class="img-personagem" alt="${personagem.personagem}">
+            <h2 class="nome-personagem">${personagem.personagem}</h2>
+            <div class="raca"> ${personagem.raca} </div>
+            <p class="desc">${personagem.descricao}</p>
+          </div>`;
+        }); // CORREÇÃO 1: Fechamento correto do forEach.forEach((personagem) => { ... })
+      }
+
+      carregar_personagens();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
+/*font-family: "Henny Penny", system-ui;*/
+
+* {
+  outline: 1px solid rgb(0, 72, 255);  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bloqueado_background {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.conteudo_bloqueio {
+  width: 95%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.shinigami {
+  height: 90%;
+  width: 700px;
+  align-self: flex-end;
+}
+
+.shinigami img {
+  width: 100%;
+  height: 100%;
+  -webkit-filter: drop-shadow(0px 0px 0px #ffffff) drop-shadow(0px 0px 0px #fff);
+}
+
+.texto {
+  background-color: white;
+  border-radius: 100px 100px 100px 0px;
+  text-align: center;
+  border: solid black 2px;
+  align-self: flex-start;
+  margin-top: 100px;
+  height: 270px;
+  width: 800px;
+  border: 3px solid black;
+}
+
+.texto h1 {
+  font-size: 50px;
+  word-break: break-all;
+  font-family: "Henny Penny", system-ui;
+}
+
+.texto p {
+  font-size: 22px;
+  word-break: break-all;
+}
+
+.botao {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.botao button {
+  background-color: red;
+  height: 100px;
+  width: 300px;
+  font-size: 30px;
+  border-radius: 20px;
+  color: gold;
+}
+
+body {
+  background-image: url(../assets/imgs/img_quiz/amigos_embaçado.png);
+  background-size: cover;
+
+}
+
+.background_tudo{
+    display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(35, 35, 35, 0.863);
+}
+
+.conteudo_inicial {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.instrucoes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 100%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 35%;
+  height: 100%;
+}
+
+.card_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 80%;
+  background-color: white;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-bottom: -50px;
+  gap: 90px;
+}
+
+.shinigami_instrucoes {
+  width: 250px;
+  height: 450px;
+}
+
+.shinigami_instrucoes img {
+  width: 250px;
+  height: 450px;
+}
+
+.titulo_instrucoes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo_instrucoes h1 {
+  font-family: "Henny Penny", system-ui;
+  font-size: 30px;
+  color: gold;
+  text-align: center;
+}
+
+.card_instrucoes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  width: 850px;
+  height: 80%;
+  margin-bottom: -50px;
+}
+
+.card_conteudo {
+  display: flex;
+  flex-direction: row;
+}
+
+.card_conteudo {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+}
+
+.botao_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.botao_menu button {
+  background-color: red;
+  height: 50px;
+  width: 300px;
+  font-size: 25px;
+  border-radius: 20px;
+  color: gold;
+}
+
+.titulo_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 350px;
+}
+
+.texto_instrucoes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 10px;
+  padding-top: 30px;
+  color: white;
+}
+
+.texto_instrucoes li {
+  margin-left: 21px;
+  font-size: 21px;
+}
+
+.texto_instrucoes h3 {
+  font-size: 24px;
+  color: red;
+}
+
+.texto_instrucoes p {
+  font-size: 21px;
+}
+
+ul li::marker {
+  color: #ff0000; 
+  font-size: 1.2em;
+}
+
+.quiz {
+  width: 100hw;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.card_quiz{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 1300px;
+  height: 600px;
+  margin-bottom: -50px;
+  background-color: #1a1a1a;
+  border-radius: 40px;
+  gap: 30px;
+}
+
+.imagem_quiz{
+  height: 500px;
+  width: 500px;
+    border-radius: 40px;
+    background-color: white;
+}
+
+.imagem_quiz img{
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.conteudo_quiz{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  width: 700px;
+  background-color: darkred;
+  border-radius: 30px;
+
+}
+
+.alternativas_quiz{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 360px;
+  width: 100%;
+  flex-wrap: wrap;
+  /* gap: 20px; */
+}
+
+.alternativas_quiz button{
+  height: 135px;
+  width: 300px;
+  background-color: #1a1a1a;
+  color: gold;
+  font-size: 16px;
+  flex-wrap: wrap;
+  
+}
+
+
+
+.pergunta_quiz{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 140px;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.pergunta_quiz p {
+  color: gold;
+  font-size: 30px;
+}

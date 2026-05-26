@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login_style.css" />
+    <link rel="stylesheet" href="navbar.css">
+  </head>
+  <body>
+<div id="navbar"></div>
+
+    <div class="container">
+            
+      <div class="card">
+        <div class="form_login">
+          <h1>Login</h1>
+          <div class="caixa_input">
+            <input id="email_input" placeholder="Email" type="email" />
+          </div>
+          <div class="caixa_input">
+            <input id="senha_input" placeholder="Senha" type="password" />
+          </div>
+          <div class="button_entrar">
+            <button onclick="entrar()">Entrar</button>
+          </div>
+          <div class="cadastrar">
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastrar-se</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="shinigami">
+        <div class="shinigami_msg">
+          <h2>Bem vindo de volta!!!</h2>
+          <p>
+            Fico feliz que tenha retornado, modéstia parte... não tem como ficar longe por muito tempo. 
+            Preencha seus dados para
+            que possamos reestabelecer sua conexão com o<p><i><b>Diário AMAAN!</b></i></p>
+          </p>
+        </div>
+        <img src="assets/imgs//img_autentificacao/shinigami_login.png">
+      </div>
+      <!-- <div class="shinigami">
+    <img src="img_cadastro/shinigami_login.png" alt="">
+  </div>-->
+    </div>
+  </body>
+
+  <script>
+
+    fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+
+      
+    // function logar() {
+    //   let email = email_inserido.value;
+    //   let senha = senha_inserida.value;
+
+    //   let usuarios_cadastrados = [
+    //     { email: "viniciuscasual@gmail.com", senha: "vinivinicasual" },
+    //     { email: "lucas_white@gmail.com", senha: "yngeyang" },
+    //     { email: "lucas_black@gmail.com", senha: "yangeyng" },
+    //   ];
+
+    //   let login_valido = false;
+
+    //   if (email == "" || senha == "") {
+    //     alert(`Preencha todos od dados do campo!`);
+    //     return;
+    //   }
+
+    //   for (let i = 0; i < usuarios_cadastrados.length; i++) {
+    //     if (
+    //       email === usuarios_cadastrados[i].email &&
+    //       senha === usuarios_cadastrados[i].senha
+    //     ) {
+    //       loginValido = true;
+    //       break;
+    //     }
+
+    //     if (login_valido) {
+    //       alert("Login realizado com sucesso! bem vindo de volta ao Diário AMAAN");
+    //       window.location.href = "home.html";
+    //     } else {
+    //       alert("Email ou senha inválidos! tente novamente");
+    //     }
+    //   }
+    // }
+
+    
+    
+
+      function entrar() {
+        //aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email; 
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    //sessionStorage.ID_USUARIO = json.id.toString();
+                    sessionStorage.setItem('ID_USUARIO', json.id.toString())
+
+
+                    setTimeout(function () {
+                        window.location = "personagens.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+  </script>
+</html>

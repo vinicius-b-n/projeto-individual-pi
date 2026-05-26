@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+/*font-family: "Henny Penny", system-ui;*/
+
+
+*{
+     /* outline: 1px solid rgb(0, 72, 255);  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #0a0a0a;
+}
+
+.banner_inicio{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  height: 750px;
+background-image: url(../assets/imgs/img_autor/maka_soul_maos.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.conteudo_banner{
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 1000px;
+    height: 300px;
+    margin-top: -300px;
+}
+
+.conteudo_banner h1{
+font-family: "Henny Penny", system-ui;
+color: white;
+font-size: 75px;
+text-align: center;
+  text-shadow: 
+    -5px -5px 0 red,  
+     5px -5px 0 red,
+    -5px  5px 0 red,  
+     5px  5px 0 red;
+}
+
+.conteudo_banner h2{
+font-family: "Henny Penny", system-ui;
+color: gold;
+font-size: 55px;
+text-align: center;
+margin-top: -40px;
+  text-shadow: 
+    -5px -5px 0 black,  
+     5px -5px 0 black,
+    -5px  5px 0 black,  
+     5px  5px 0 black;
+}
+
+.conteudo_banner h3{
+font-size: 25px;
+text-align: center;
+color: white;
+text-decoration: underline;
+}
+
+.banner_shinigami{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+    height: 700px;
+    gap: 40px;
+}
+
+.pergunta_shinigami{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+    width: 500px;
+    height: 500px;
+}
+
+.branco{
+  color: white;
+  font-size: 80px;
+  font-family: "Henny Penny", system-ui;
+  margin-bottom: -30px;
+  margin-left: -50px;
+}
+
+.vermelho{
+  color: red;
+  font-size: 100px;
+  font-family: "Henny Penny", system-ui;
+  margin-left: -50px;
+}
+
+.amarelo{
+  color: gold;
+  font-size: 100px;
+  font-family: "Henny Penny", system-ui;
+  margin-top: -60px;
+  margin-left: -50px;
+}
+
+.card_shinigami{
+  border: red solid 7px;
+  height: 300px;
+  width: 500px;
+  color: white;
+      display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.shinigammi_imagem{
+  height: 500px;
+  width: 400px;
+  margin-left: -60px;
+  ;
+}
+
+.shinigammi_imagem img{
+  height: 100%;
+  width: 100%;
+    border-radius: 50%;
+  border: 7px solid gold;
+  object-fit: cover;
+  background-color: white
+}
+
+
+.card_shinigami h3 i{
+color: red;
+font-size: 40px;
+}
+
+.card_shinigami h3{
+font-size: 40px;
+}
+
+.card_shinigami h2{
+color: gold;
+font-size: 60px;
+}
+
+.card_shinigami span{
+font-size: 20px;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+.card_shinigami i{
+color: gold;
+}
+
+/*  */
+
+.background_conteudo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  height: 700px;
+  background-color: #0a0a0a;
+}
+
+.card_conteudo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 90%;
+  background-color: #1a1a1a;
+  border: 3px solid red;
+}
+
+.kid_art {
+  width: 400px;
+  height: 600px;
+}
+
+.conteudo_arte {
+  width: 70%;
+  height: 600px;
+  padding: 8px;
+}
+
+.conteudo_arte h3 {
+  color: gold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 23px;
+}
+
+.conteudo_arte p {
+  color: ghostwhite;
+  font-size: 19px;
+}
+
+.kid_art img {
+  width: 100%;
+  height: 100%;
+}
+
+.espaco_valor{
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  gap: 20px;
+  
+}
+
+.espaco_valor :hover{
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  border-color: gold; 
+  /* box-shadow: 0 0 20px 5px rgba(255, 0, 0, 0.6); */
+}
+
+.card_valor{
+  height: 90%;
+  width: 23%;
+    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a0a0a;
+  border: red solid 4px;
+  text-align: center;
+  padding: 10px;
+}
+
+/* .card_valor h3 :hover{
+    box-shadow: 0 0 20px #ffea00, 0 0 40px #ffea00;
+} */
+
+.card_valor h3{
+align-self: center;
+justify-content: flex-start;
+  font-size: 35px;
+  color: aqua;
+}
+
+.conteudo_arte_valor{
+  width: 100%;
+  height: 600px;
+  padding: 8px;
+}
+
+.conteudo_arte_valor h3 {
+  color: gold;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 27px;
+
+}
+
+.conteudo_arte_valor p {
+  color: ghostwhite;
+  font-size: 19px;
+}
+
+.titulo_agradecimento{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+margin-top: 90px;
+margin-bottom: 50px;
+}
+
+.titulo_agradecimento h1{
+  color: white;
+  font-size: 80px;
+}
+
+.cards_agradecimento{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+
+height: 600px;
+width: 100%;
+background-color: black;
+flex-wrap: wrap;
+}
+
+.card_agradecimento{
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+background-color: #2a2a2a;
+width: 400px;
+height: 90%;
+}
+
+.card_agradecimento h1{
+font-size: 40px;
+margin-bottom: 20px;
+color: gold;
+}
+
+.card_agradecimento img{
+  width: 300px;
+  height: 400px;
+}
+
+.card_negri{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+
+background-image: url(https://img.freepik.com/premium-photo/soft-white-clouds-blue-background_619568-1610.jpg?semt=ais_hybrid&w=740&q=80);
+background-size: cover;
+background-position: center; 
+width: 93%;
+height: 90%;
+border: gold groove 10px;
+/* border-radius: 50px; */
+gap: 60px;
+}
+
+.card_negri img{
+  width: 360px;
+  height: 500px;
+  border-radius: 50px;
+  margin-left: -50px;
+  filter: opacity(75%);
+}
+
+.card_negri b {
+  font-size: 70px;
+}
+
+.card_negri h1 {
+  font-size: 40px;
+}
+
+.card_negri i {
+  font-size: 30px;
+}

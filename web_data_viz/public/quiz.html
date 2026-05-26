@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css" />
+    <link rel="stylesheet" href="navbar.css">
+</head>
+
+<body>
+    <div id="navbar"></div>
+    <div class="bloqueado_background" id="bloqueado_background">
+        <div class="conteudo_bloqueio">
+            <div class="shinigami">
+                <img src="assets/imgs/img_quiz/shinigami_curioso.webp" alt="" />
+            </div>
+            <div class="texto">
+                <h1>
+                    Ops, parece que você ainda <br />
+                    não tem acesso ao Quiz!
+                </h1>
+                <p>
+                    Caso queira se tornar mais uma linha no <u><i>Diário AMAAN</i></u>
+                    <br />cadastre-se, faça o login e tenha acesso total a todas
+                    <br />as interações disponiveis no site!
+                </p>
+                <div class="botao">
+                    <button onclick="cadastrar()"><b>Fazer Cadastro</b></button>
+                    <button onclick="logar()"><b>Fazer Login</b></button>
+                    <button onclick="ter()">tenho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background_tudo">
+        <div class="conteudo_inicial" id="conteudo_inicial">
+            <div class="instrucoes">
+                <div class="card_instrucoes">
+                    <div class="titulo_instrucoes">
+                        <h1>BEM VINDO AO TESTE DE <br />PERSONALIDADE QUERIDO USUÁRIO!!!</h1>
+                    </div>
+                    <div class="card_conteudo">
+                        <div class="shinigami_instrucoes">
+                            <img src="assets/imgs/img_quiz/shinigami dancando.png" alt="" />
+                        </div>
+                        <div class="texto_instrucoes">
+                            <h3>
+                                <u>Antes de iniciar o quiz, por favor leia atentamente as
+                                    instruções a seguir:</u>
+                            </h3>
+                            <br>
+                            <p>
+                                O modelo de ensino da nossa escola AMAAN, prezamos muito pela
+                                personalidade individual de cada um. Por isso nessa parte da
+                                aplicação pedimos que vove siga as instrucoes a baixo para
+                                melhor experiencia: <br><br>
+
+                            <ul>
+                                <li>Responda sinceramente as perguntas para que o resultado seja mais preciso com um de
+                                    nossos alunos</li>
+                                <li>As perguntas só podem ser respondidas uma vez, ápos avançar não é possivel voltar a
+                                    questao anterior</li>
+                                <li>O quiz apenas poderá ser respondido uma única vez, após ser definida uma
+                                    personalidade
+                                    de um de nossos alunos, sua alma estará vinculada a dele</li>
+                            </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu">
+                <div class="card_menu">
+                    <div class="titulo_menu">
+                        <h1>Escolha iniciar o quiz, ou voltar para a tela inicial</h1>
+                    </div>
+                    <div class="botao_menu">
+                        <button onclick="iniciar()">iniciar</button>
+                        <a href="index.html">
+                            <button onclick="voltar()">voltar</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="quiz" id="quiz">
+            <div class="card_quiz">
+                <div class="imagem_quiz"><img src="https://static.wikia.nocookie.net/souleater/images/d/da/Soul_Eater_Crew_02.png/revision/latest?cb=20240812135355&path-prefix=fr" alt=""></div>
+                <div class="conteudo_quiz">
+                    <div class="pergunta_quiz" id="pergunta_quiz">
+                        <!-- <p></p> -->
+                    </div>
+                    <div class="alternativas_quiz" id="alternativas_quiz">
+                        <!-- <button>A. Assume e faz as coisas do seu jeito</button>
+                        <button>B. Organiza tudo e divide tarefas</button>
+                        <button>C. Faz sua parte quieto</button>
+                        <button>D. Vai improvisando </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+
+    var id_user = sessionStorage.getItem("ID_USUARIO");
+    console.log(Number(id_user));
+
+
+
+    fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+
+    if (id_user != null) {
+        bloqueado_background.style.display = "none"
+
+    }
+
+    function ter() {
+        bloqueado_background.style.display = "none"
+    }
+
+    function cadastrar() {
+        window.location.href = "cadastro.html";
+    }
+
+    function logar() {
+        window.location.href = "login.html";
+    }
+
+    var soul_point = 0
+    var star_point = 0
+    var maka_point = 0
+    var kid_point = 0
+    var tsubaki_point = 0
+    var crona_point = 0
+    var liz_point = 0
+    var patty_point = 0
+    var espada_point = 0
+
+
+
+    function iniciar() {
+        conteudo_inicial.style.display = "none"
+        quiz.style.display = "flex";
+
+        carregar_pergunta()
+        carregar_alternativa()
+    }
+
+    function carregar_pergunta() {
+        fetch("/quiz/buscar_perguntas_respostas") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController
+            .then((response) => response.json()) //transformando o json de controller em uma variavel
+            .then((perguntas) => {
+                // variavel personagens guarda o jason de personagensController
+                mostrar_perguntas(perguntas); //passsa a variavel com valor do json como parametro para a funcao mostrar_personagens
+            })
+            .catch((error) =>
+                console.error("erro ao carregar perguntas na tela", error),
+            );
+
+    }
+
+
+
+
+    function carregar_alternativa() {
+        fetch("/quiz/buscar_perguntas_respostas") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController
+            .then((response) => response.json()) //transformando o json de controller em uma variavel
+            .then((alternativas) => {
+                // variavel personagens guarda o jason de personagensController
+                mostrar_alternativas(alternativas); //passsa a variavel com valor do json como parametro para a funcao mostrar_personagens
+            })
+            .catch((error) =>
+                console.error("erro ao carregar alternativas na tela", error),
+            );
+    }
+
+    let contador_perguntas = 1
+
+    function mostrar_perguntas(perguntas) {
+        const conteudo_perguntas =
+            document.getElementById("pergunta_quiz");
+        conteudo_perguntas.innerHTML = "";
+        
+
+
+        perguntas.forEach((pergunta) => {
+
+            // contador_perguntas ++
+
+            if (pergunta.id_pergunta == contador_perguntas) {
+                conteudo_perguntas.innerHTML = `
+            <p>${pergunta.pergunta}</p>`;
+                console.log(pergunta.pergunta);
+                console.log(`.`);
+            }
+        });
+    }
+
+    function mostrar_alternativas(alternativas) {
+        const conteudo_alternativas =
+            document.getElementById("alternativas_quiz");
+        conteudo_alternativas.innerHTML = "";
+
+
+
+
+        alternativas.forEach((alternativa) => {
+
+            // contador_perguntas ++
+            console.log("id pergunta =",alternativa.id_pergunta);
+            if (alternativa.id_pergunta == contador_alternativas) {
+                conteudo_alternativas.innerHTML += `
+            <button onclick = "escolher_alternativa(${alternativa.id_alternativa})">${alternativa.alternativa}</button>`;
+                console.log("alternativa =", alternativa.alternativa);
+                console.log("id alternativa =", alternativa.id_alternativas);
+                
+                console.log(`.`);
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+    let contador_alternativas = 1
+    function escolher_alternativa(id_alternativa) {
+        console.log(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHhhhhhhhhhhhhhhh`);
+        console.log(id_alternativa)
+        if (id_alternativa == 1 || id_alternativa == 5 || id_alternativa == 9 || id_alternativa == 13 || id_alternativa == 17 || id_alternativa == 21 || id_alternativa == 25 || id_alternativa == 29) {
+            soul_point++
+            star_point++
+            espada_point = espada_point + 10
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+            carregar_pergunta()
+            carregar_alternativa()
+
+            
+            
+        }
+
+        if (id_alternativa == 2 || id_alternativa == 6 || id_alternativa == 10 || id_alternativa == 14 || id_alternativa == 18 || id_alternativa == 22 || id_alternativa == 26 || id_alternativa == 30) {
+            maka_point++
+            kid_point++
+            espada_point = espada_point + 20
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+        }
+
+        if (id_alternativa == 3 || id_alternativa == 7 || id_alternativa == 11 || id_alternativa == 15 || id_alternativa == 19 || id_alternativa == 23 || id_alternativa == 27 || id_alternativa == 31) {
+            tsubaki_point++
+            crona_point++
+            espada_point = espada_point + 30
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+        }
+
+        if (id_alternativa == 4 || id_alternativa == 8 || id_alternativa == 12 || id_alternativa == 16 || id_alternativa == 20 || id_alternativa == 24 || id_alternativa == 28 || id_alternativa == 32) {
+            tsubaki_point++
+            crona_point++
+            espada_point = espada_point + 40
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+        }
+
+        if (id_alternativa == 33) {
+            crona_point++
+            maka_point++
+            kid_point++
+            star_point++
+        }
+        if (id_alternativa == 34) {
+            soul_point++
+            liz_point++
+            patty_point++
+            tsubaki_point++
+        }
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+/*font-family: "Henny Penny", system-ui;*/
+
+* {
+     outline: 1px solid rgb(0, 72, 255);  
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  
+}
+
+.banner_inicio {
+  position: relative; /* permite sobrepor */
+  margin-top: -190px;
+}
+
+.banner_inicio img {
+  display: block;
+  width: 1520px;
+  height: 1100px;
+}
+
+/* camada escura */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.conteudo_banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  color: white;
+}
+
+.conteudo_banner h1 {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.conteudo_banner h3 {
+  margin-top: 5px;
+  font-family: monospace;
+  margin-left: 320px;
+}
+
+.conteudo_banner img {
+  height: 500px;
+  width: 420px;
+  align-items: start;
+  margin-top: 90px;
+}
+
+.banner_shinigami {
+  width: 100%;
+  height: 250px; 
+
+  background-color: red;
+
+  display: flex; 
+  align-items: center; 
+  justify-content: space-around; 
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.banner_shinigami img {
+  height: 250px;
+  width: 250px;
+  margin-left: 90px;
+}
+
+.texto_shinigami {
+  color: white;
+  max-width: 950px;
+  margin-right: 90px;
+}
+
+.texto_shinigami p {
+  font-size: 20px;
+}
+
+/* SEÇÃO */
+.secao {
+  position: relative;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.secao-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+
+.tag {
+  background-color: #c40000;
+  color: #ffd700;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  position: absolute;
+  top: 40;
+  left: 40px;
+  font-size: 30px;
+}
+
+
+.secao-conteudo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+
+.texto_informativo {
+  font-size: 17px;
+  max-width: 1000px;
+  text-indent: 40px; 
+  margin-bottom: 15px; /* Espaço entre os parágrafos */
+}
+
+.texto_informativo p{
+  margin-bottom: 8px;
+}
+
+
+.imagem_informativo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagem_informativo img {
+  max-width: 100%;
+  border-radius: 10px;
+  width: 360px;
+  height: 400px;
+  object-fit: cover;
+  border: 5px solid #c40000;
+}
+
+.texto_informativo p{
+
+  text-align: justify;
+  
+}
+
+.texto_informativo h3 {
+  text-indent: 0px; 
+  background-color: #c40000;
+  color: white;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  
+}
+
+.topo {
+  margin-top: 75px;
+}
+
+.corte img {
+  height: 490px;
+  width: 6000px;
+}
+
+.imagem_banner_school {
+  background-image: url(../assets/imgs/img/banner_escola.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.banner_school {
+  height: 350px;
+  width: 99vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;  
+  backdrop-filter: brightness(35%) blur(2px);
+  margin-top: 50px;
+}
+
+.maka_amaan img{
+ width: 400px;
+ height: 500px;
+}
+
+.titulo_amaan{
+  font-size: 500%;
+  color: white;
+}
+
+.textinho_amaan{
+ 
+}
+
+.textinho_amaan p{
+  color: white;
+  font-size: 45px;
+  
+}

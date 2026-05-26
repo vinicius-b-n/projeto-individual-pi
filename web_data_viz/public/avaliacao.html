@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+* {
+  outline: 1px solid rgb(0, 72, 255);  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+    .card_avaliacao {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 460px;
+      background-color: darkred;
+      gap: 8px;
+      border: black solid 10px;
+    }
+
+    .logo_avaliacao {
+      width: 75px;
+      height: 100px;
+    }
+
+    .logo_avaliacao img{
+      width: 100%;
+      height: 100%;
+    }
+
+    .titulo{
+        font-size: 35px;
+        color: gold;
+        ;
+    }
+
+        .titulo h5{
+        font-size: 30px;
+        justify-self: center;
+        
+    }
+
+    .estrelas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: 50px;
+    }
+
+    .estrela {
+    display: flex;
+      align-items: center;
+      justify-content: center;    
+      width: 130px;
+      height: 130px;
+      color: gray;
+        font-size: 150px;
+        transition: 0.3s;
+    }
+    
+
+    .botao_avaliar button{
+        width: 130px;
+        height: 50px;
+        border-radius: 30px;
+        background-color: red;
+        color: gold;
+        font-size: 21px;
+        margin-top: 20px;
+    }
+  </style>
+  <body>
+    <div class="card_avaliacao">
+      <div class="logo_avaliacao">
+        <img
+          src="https://toppng.com/uploads/thumbnail/soul-eater-png-transparent-soul-eater-lord-death-mask-11563508608pknkazu7oy.png"
+          alt=""
+        />
+      </div>
+      <div class="titulo">
+        <h2>Avalie Nosso Site Diário AMAAN</h2>
+        <h5>e ajude a melhorarmos sua experiência</h5>
+      </div>
+      <div class="estrelas">
+        <span onclick="selecionar_nota(1)" class="estrela">★</span>
+        <span onclick="selecionar_nota(2)" class="estrela">★</span>
+        <span onclick="selecionar_nota(3)" class="estrela">★</span>
+        <span onclick="selecionar_nota(4)" class="estrela">★</span>
+        <span onclick="selecionar_nota(5)" class="estrela">★</span>
+      </div>
+      <div class="botao_avaliar">
+        <button onclick="enviar()"><b>Enviar</b></button>
+      </div>
+    </div>
+  </body>
+  <script>
+    estrelas = document.querySelectorAll(".estrelas span")
+    
+    let nota_selecionada = 0
+
+    function selecionar_nota(nota) {
+        nota_selecionada = nota
+        
+
+// "acendendo" estrelas
+
+for (let i = 0; i < estrelas.length; i++) {
+    if (i < nota) {
+        estrelas[i].style.color = "gold"
+
+    }
+    else {
+        estrelas[i].style.color = "gray"
+    }
+}
+
+ window.nota_selecionada = nota
+    }
+
+    function enviar(nota) {
+      console.log(nota);
+      
+    }
+  </script>
+</html>
