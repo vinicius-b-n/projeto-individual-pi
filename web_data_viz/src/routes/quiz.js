@@ -12,6 +12,10 @@ router.get("/buscar_perguntas_respostas", function (req, res) {
     quizController.buscar_perguntas_respostas(req, res);
 })
 
+router.post("/atualizar_resultado/:id_user/:fk_personagem", function (req, res) { //
+    quizController.atualizar_resultado(req, res); //
+})
+
 module.exports = router;
 
 //.post - entrada/confirmaçao (botao_input)

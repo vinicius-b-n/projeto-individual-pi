@@ -18,7 +18,16 @@ var instrucaoSql = `
     return database.executar(instrucaoSql);
 }
 
+function atualizar_resultado(id_user, fk_personagem) { //
+    var instrucaoSql =`
+    update usuario set fk_resultado = ? where id_usuario = ?;
+`;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql, [fk_personagem, id_user]); //
+    }
+
 module.exports = {
     buscar_resultado,
-    buscar_perguntas_respostas
+    buscar_perguntas_respostas,
+    atualizar_resultado
 };

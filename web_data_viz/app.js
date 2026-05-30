@@ -19,8 +19,8 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var avisosRouter = require("./src/routes/avisos");
 var medidasRouter = require("./src/routes/medidas");
-var aquariosRouter = require("./src/routes/aquarios");
-var empresasRouter = require("./src/routes/empresas");
+// var aquariosRouter = require("./src/routes/aquarios");
+// var empresasRouter = require("./src/routes/empresas");
 var personagensRouter = require("./src/routes/personagens")
 var quizRouter = require("./src/routes/quiz")
 var avaliacaoRouter = require("./src/routes/avaliacao")
@@ -35,8 +35,8 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
+// app.use("/aquarios", aquariosRouter);
+// app.use("/empresas", empresasRouter);
 app.use("/personagens", personagensRouter); //tudo que vc colocar em personagens router, tem que conter "/personagens" se for usar um fech
 app.use("/quiz", quizRouter);
 app.use("/avaliacao", avaliacaoRouter);

@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap");
 /*font-family: "Henny Penny", system-ui;*/
 
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Henny+Penny&family=League+Spartan:wght@100..900&family=Playwrite+NO:wght@100..400&display=swap');
+
 * {
-  outline: 1px solid rgb(0, 72, 255);  
+  outline: 1px solid rgb(0, 72, 255);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -89,8 +91,8 @@ body {
 
 }
 
-.background_tudo{
-    display: flex;
+.background_tudo {
+  display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
@@ -241,7 +243,7 @@ body {
 }
 
 ul li::marker {
-  color: #ff0000; 
+  color: #ff0000;
   font-size: 1.2em;
 }
 
@@ -252,7 +254,7 @@ ul li::marker {
   justify-content: center;
 }
 
-.card_quiz{
+.card_quiz {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -265,20 +267,20 @@ ul li::marker {
   gap: 30px;
 }
 
-.imagem_quiz{
+.imagem_quiz {
   height: 500px;
   width: 500px;
-    border-radius: 40px;
-    background-color: white;
+  border-radius: 40px;
+  background-color: white;
 }
 
-.imagem_quiz img{
+.imagem_quiz img {
   width: 100%;
   height: 100%;
   border-radius: 40px;
 }
 
-.conteudo_quiz{
+.conteudo_quiz {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -290,7 +292,7 @@ ul li::marker {
 
 }
 
-.alternativas_quiz{
+.alternativas_quiz {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -301,19 +303,19 @@ ul li::marker {
   /* gap: 20px; */
 }
 
-.alternativas_quiz button{
+.alternativas_quiz button {
   height: 135px;
   width: 300px;
   background-color: #1a1a1a;
   color: gold;
   font-size: 16px;
   flex-wrap: wrap;
-  
+
 }
 
 
 
-.pergunta_quiz{
+.pergunta_quiz {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -327,4 +329,133 @@ ul li::marker {
 .pergunta_quiz p {
   color: gold;
   font-size: 30px;
+}
+
+/* avaliacao */
+
+.card_avaliacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 460px;
+  background-color: darkred;
+  gap: 8px;
+  border: black solid 10px;
+}
+
+.logo_avaliacao {
+  width: 75px;
+  height: 100px;
+}
+
+.logo_avaliacao img {
+  width: 100%;
+  height: 100%;
+}
+
+.titulo {
+  font-size: 35px;
+  color: gold;
+  ;
+}
+
+.titulo h5 {
+  font-size: 30px;
+  justify-self: center;
+
+}
+
+.estrelas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.estrela {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  color: gray;
+  font-size: 150px;
+  transition: 0.3s;
+}
+
+
+.botao_avaliar button {
+  width: 130px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: red;
+  color: gold;
+  font-size: 21px;
+  margin-top: 20px;
+}
+
+.tela_resultado {
+  display: none;
+}
+
+/* resultado quiz */
+
+.resultado {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.resultado_conteudo {
+  height: 87%;
+   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 90px;
+  background-color: purple;
+}
+
+.resultado_texto{
+  height: 600px;
+  width: 800px;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.titulo_resultado{
+font-family: "League Spartan", sans-serif;
+background-color: white;
+border: white solid 20px;
+width: 9px;
+}
+
+
+
+/* ------------------ */
+
+.resultado_imagem{
+  border: white 6px solid;
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.resultado_imagem img{
+  width: 450px; /* Defina a largura desejada */
+  height: 100%;
+  aspect-ratio: 3 / 4; /* Define a proporção exata da moldura */
+  object-fit: cover; /* Recorta a imagem para preencher a moldura sem distorcer */
+  object-position: center;
+  border: black 6px solid;
 }

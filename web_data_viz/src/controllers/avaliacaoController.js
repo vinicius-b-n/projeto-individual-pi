@@ -2,9 +2,10 @@ var avaliacaoModel = require("../models/avaliacaoModel");
 
 
 
-function cadastrar_avaliacao(req, res) {
+function cadastrar_nota(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nota_final = req.body.nomeServer;
+    var nota = req.body.notaServer;
+    var fk_usuario = req.body.fk_usuarioServer
 
     // Faça as validações dos valores
     if (nota_final == undefined) {
@@ -13,7 +14,7 @@ function cadastrar_avaliacao(req, res) {
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        avaliacaoModel.cadastrar_avaliacao(nota_final)
+        avaliacaoModel.cadastrar_nota(nota, fk_usuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -32,5 +33,5 @@ function cadastrar_avaliacao(req, res) {
 }
 
 module.exports = {
-    cadastrar_avaliacao
+    cadastrar_nota
 }

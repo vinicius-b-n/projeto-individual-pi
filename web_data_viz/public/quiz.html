@@ -91,7 +91,9 @@
 
         <div class="quiz" id="quiz">
             <div class="card_quiz">
-                <div class="imagem_quiz"><img src="https://static.wikia.nocookie.net/souleater/images/d/da/Soul_Eater_Crew_02.png/revision/latest?cb=20240812135355&path-prefix=fr" alt=""></div>
+                <div class="imagem_quiz"><img
+                        src="https://static.wikia.nocookie.net/souleater/images/d/da/Soul_Eater_Crew_02.png/revision/latest?cb=20240812135355&path-prefix=fr"
+                        alt=""></div>
                 <div class="conteudo_quiz">
                     <div class="pergunta_quiz" id="pergunta_quiz">
                         <!-- <p></p> -->
@@ -105,7 +107,46 @@
                 </div>
             </div>
         </div>
+        <div class="tela_resultado" id="tela_resultado">
+            <div class="card_avaliacao">
+                <div class="logo_avaliacao">
+                    <img src="https://toppng.com/uploads/thumbnail/soul-eater-png-transparent-soul-eater-lord-death-mask-11563508608pknkazu7oy.png"
+                        alt="" />
+                </div>
+                <div class="titulo">
+                    <h2>Avalie Nosso Site Diário AMAAN</h2>
+                    <h5>e ajude a melhorarmos sua experiência</h5>
+                </div>
+                <div class="estrelas">
+                    <span onclick="selecionar_nota(1)" class="estrela">★</span>
+                    <span onclick="selecionar_nota(2)" class="estrela">★</span>
+                    <span onclick="selecionar_nota(3)" class="estrela">★</span>
+                    <span onclick="selecionar_nota(4)" class="estrela">★</span>
+                    <span onclick="selecionar_nota(5)" class="estrela">★</span>
+                </div>
+                <div class="botao_avaliar">
+                    <button onclick="enviar()"><b>Enviar</b></button>
+                </div>
+            </div>
+        </div>
+        <div class="resultado">
+            <div class="resultado_conteudo">
+                <div class="resultado_texto">
+                    <h1 class="titulo_resultado">A Determinação Corajosa</h1>
+                    <p>Se você tirou a Maka, você é a espinha dorsal de qualquer grupo. Organizada, focada e extremamente confiável, você é aquela pessoa que estuda o terreno antes de pisar. Para você, a biblioteca ideal é sinônimo de foco, e a bagunça (tanto física quanto mental) te irrita profundamente. Seu perfeccionismo pode ser uma cobrança pesada às vezes, mas é também o que te torna uma estrategista brilhante. Diante da pressão, você não foge: você analisa, cria um plano e lidera com coragem.</p>
+                    <h2>User e Maka Dividem Semelhança de Alma</h2>
+                </div>
+                <div class="resultado_imagem">
+                    <img src="assets/imgs/img_quiz/resultado_quiz/maka_manga.avif" alt="">
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
+
+
 
 
 </body>
@@ -113,6 +154,11 @@
 
     var id_user = sessionStorage.getItem("ID_USUARIO");
     console.log(Number(id_user));
+
+    var fk_personagem = sessionStorage.getItem("FK_PERSONAGEM"); //
+    var personagem = 0; //
+
+    console.log(`personagem_id:`, fk_personagem); //
 
 
 
@@ -163,7 +209,9 @@
         fetch("/quiz/buscar_perguntas_respostas") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController
             .then((response) => response.json()) //transformando o json de controller em uma variavel
             .then((perguntas) => {
-                // variavel personagens guarda o jason de personagensController
+                // variavel personagens guarda o jason de personagensCont
+                // 
+
                 mostrar_perguntas(perguntas); //passsa a variavel com valor do json como parametro para a funcao mostrar_personagens
             })
             .catch((error) =>
@@ -193,7 +241,7 @@
         const conteudo_perguntas =
             document.getElementById("pergunta_quiz");
         conteudo_perguntas.innerHTML = "";
-        
+
 
 
         perguntas.forEach((pergunta) => {
@@ -203,8 +251,8 @@
             if (pergunta.id_pergunta == contador_perguntas) {
                 conteudo_perguntas.innerHTML = `
             <p>${pergunta.pergunta}</p>`;
-                console.log(pergunta.pergunta);
-                console.log(`.`);
+                // console.log(pergunta.pergunta);
+                // console.log(`.`);
             }
         });
     }
@@ -220,89 +268,275 @@
         alternativas.forEach((alternativa) => {
 
             // contador_perguntas ++
-            console.log("id pergunta =",alternativa.id_pergunta);
+            // console.log("id pergunta =", alternativa.id_pergunta);
             if (alternativa.id_pergunta == contador_alternativas) {
                 conteudo_alternativas.innerHTML += `
             <button onclick = "escolher_alternativa(${alternativa.id_alternativa})">${alternativa.alternativa}</button>`;
-                console.log("alternativa =", alternativa.alternativa);
-                console.log("id alternativa =", alternativa.id_alternativas);
-                
+                // console.log("alternativa =", alternativa.alternativa);
+                // console.log("id alternativa =", alternativa.id_alternativa);
+
                 console.log(`.`);
             }
         });
     }
 
-
-
-
-
-
+    // var maka_point = 0
+    // var soul_point = 0
+    // var star_point = 0
+    // var tsubaki_point = 0
+    // var liz_point = 0
+    // var patty_point = 0
+    // var kid_point = 0
+    // var crona_point = 0
+    // var espada_point = 0
 
 
     let contador_alternativas = 1
     function escolher_alternativa(id_alternativa) {
-        console.log(`AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHhhhhhhhhhhhhhhh`);
         console.log(id_alternativa)
-        if (id_alternativa == 1 || id_alternativa == 5 || id_alternativa == 9 || id_alternativa == 13 || id_alternativa == 17 || id_alternativa == 21 || id_alternativa == 25 || id_alternativa == 29) {
-            soul_point++
-            star_point++
-            espada_point = espada_point + 10
+
+
+        if (id_alternativa == 1) {
+            star_point = star_point + 1
+            patty_point = patty_point + 1
             contador_alternativas = contador_alternativas + 1
             contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
             carregar_pergunta()
             carregar_alternativa()
-
-            
-            
         }
 
-        if (id_alternativa == 2 || id_alternativa == 6 || id_alternativa == 10 || id_alternativa == 14 || id_alternativa == 18 || id_alternativa == 22 || id_alternativa == 26 || id_alternativa == 30) {
-            maka_point++
-            kid_point++
-            espada_point = espada_point + 20
+        else if (id_alternativa == 2) {
+            maka_point = maka_point + 1
+            tsubaki_point = tsubaki_point + 1
             contador_alternativas = contador_alternativas + 1
             contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
         }
 
-        if (id_alternativa == 3 || id_alternativa == 7 || id_alternativa == 11 || id_alternativa == 15 || id_alternativa == 19 || id_alternativa == 23 || id_alternativa == 27 || id_alternativa == 31) {
-            tsubaki_point++
-            crona_point++
-            espada_point = espada_point + 30
+        else if (id_alternativa == 3) {
+            kid_point = kid_point + 1
+            crona_point = crona_point + 1
             contador_alternativas = contador_alternativas + 1
             contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
         }
 
-        if (id_alternativa == 4 || id_alternativa == 8 || id_alternativa == 12 || id_alternativa == 16 || id_alternativa == 20 || id_alternativa == 24 || id_alternativa == 28 || id_alternativa == 32) {
-            tsubaki_point++
-            crona_point++
-            espada_point = espada_point + 40
+        else if (id_alternativa == 4) {
+            liz_point = liz_point + 1
+            soul_point = soul_point + 1
             contador_alternativas = contador_alternativas + 1
             contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
         }
 
-        if (id_alternativa == 33) {
-            crona_point++
-            maka_point++
-            kid_point++
-            star_point++
-        }
-        if (id_alternativa == 34) {
+        else if (id_alternativa == 5 || id_alternativa == 9 || id_alternativa == 13 || id_alternativa == 17 || id_alternativa == 21 || id_alternativa == 25 || id_alternativa == 29) {
             soul_point++
-            liz_point++
-            patty_point++
-            tsubaki_point++
+            star_point++
+            // espada_point = espada_point + 10
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
         }
 
+        else if (id_alternativa == 6 || id_alternativa == 10 || id_alternativa == 14 || id_alternativa == 18 || id_alternativa == 22 || id_alternativa == 26 || id_alternativa == 30) {
+            maka_point++
+            kid_point++
+            // espada_point = espada_point + 20
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
+        }
+
+        else if (id_alternativa == 7 || id_alternativa == 11 || id_alternativa == 15 || id_alternativa == 19 || id_alternativa == 23 || id_alternativa == 27 || id_alternativa == 31) {
+            tsubaki_point++
+            crona_point++
+            // espada_point = espada_point + 30
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
+        }
+
+        else if (id_alternativa == 8 || id_alternativa == 12 || id_alternativa == 16 || id_alternativa == 20 || id_alternativa == 24 || id_alternativa == 28 || id_alternativa == 32) {
+            patty_point++
+            liz_point++
+            // espada_point = espada_point + 40
+            contador_alternativas = contador_alternativas + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+            carregar_pergunta()
+            carregar_alternativa()
+        }
+
+        else if (id_alternativa == 33) {
+            crona_point = crona_point + 1
+            maka_point = maka_point + 1
+            kid_point = kid_point + 1
+            star_point = star_point + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(`contador: ${contador_perguntas}`);
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+        }
+
+        else if (id_alternativa == 34) {
+            soul_point = soul_point + 1
+            liz_point = liz_point + 1
+            patty_point = patty_point + 1
+            tsubaki_point = tsubaki_point + 1
+            contador_perguntas = contador_perguntas + 1
+            console.log(`contador: ${contador_perguntas}`);
+            console.log(maka_point);
+            console.log(soul_point);
+            console.log(star_point);
+            console.log(tsubaki_point);
+            console.log(kid_point);
+            console.log(liz_point);
+            console.log(patty_point);
+            console.log(crona_point);
+        }
+
+        if (contador_perguntas == 10) {
+            quiz.style.display = "none"
+            tela_resultado.style.display = "flex"
+            console.log('olhaaaaaaaaaaaaaaaaaaaaaa');
+
+            var lista_resultado = [maka_point, soul_point, star_point, tsubaki_point, kid_point, liz_point, patty_point, crona_point]
+            let maior = lista_resultado[0]
+            let fk_personagem = 0
+            let maiores_resultados = []
+
+
+            for (let i = 0; i < lista_resultado.length; i++) {
+                if (lista_resultado[i] > maior) {
+                    maior = lista_resultado[i]
+                }
+            }
+
+            for (let i = 0; i < lista_resultado.length; i++) {
+                if (lista_resultado[i] == maior) {
+                    maiores_resultados.push(i)
+                }
+
+            }
+
+            let sorteio_personalidade = Math.floor(Math.random() * maiores_resultados.length)
+
+            fk_personagem = maiores_resultados[sorteio_personalidade]
+            console.log(fk_personagem)
 
 
 
 
+
+            fetch(`/quiz/atualizar_resultado/${id_user}/${fk_personagem}`, {
+                method: "POST"
+            })
+                .then((response) => response.json())
+                .then(() => { console.log("funcionou") })
+                .catch((error) =>
+                    console.error("erro ao salvar resultado", error)
+                );
+        }
 
     }
 
 
 
 
+
+
+
+    const estrelas = document.querySelectorAll(".estrelas span");
+    let nota_selecionada = 0;
+
+    function selecionar_nota(nota) {
+        nota_selecionada = nota;
+
+        for (let i = 0; i < estrelas.length; i++) {
+            if (i < nota) {
+                estrelas[i].style.color = "gold";
+            } else {
+                estrelas[i].style.color = "gray";
+            }
+        }
+
+        console.log("Nota escolhida:", nota_selecionada);
+    }
 
 
 </script>
