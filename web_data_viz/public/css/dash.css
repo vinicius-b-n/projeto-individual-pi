@@ -1,7 +1,13 @@
+*{
+    outline: 1px solid rgb(0, 72, 255);  
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+
 body {
     background-color: #0b0b0b;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #ffffff;
     padding: 20px;
 }
 
@@ -56,6 +62,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
+    color: white;
 }
 
 .titulo_painel {
@@ -104,21 +111,19 @@ body {
 .card_kpi_valor {
     font-size: 32px;
     font-weight: bold;
-    margin: 5px 0;
-    font-size: 22px; margin-top: 10px; display: block;
+    font-size: 22px;
 }
 
-.card_kpi_icone {
-    /* width: 24px;
-    height: 24px;
-    border: 1px dashed #999;
-    background-color: #eaeaea; */
+.card_kpi_icone img{
+    width: 30px;
+    height: 30px;
+    
 
 
 }
 
 .card_kpi_valor span{
-    font-size: 18px; color: #b31d1d;
+    font-size: 30px; color: #b31d1d;
 }
 
 /*card graficps*/

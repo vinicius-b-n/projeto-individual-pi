@@ -170,3 +170,10 @@ select {
   background-color: #ffcc00; 
   transform: scale(1.05); /* O botão cresce levemente ao passar o mouse */
 }
+
+
+.shinigami_chamado{
+  background-color: darkred;
+  height: 300px;
+  width: 100%;
+}

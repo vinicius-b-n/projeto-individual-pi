@@ -18,7 +18,7 @@ var instrucaoSql = `
     return database.executar(instrucaoSql);
 }
 
-function atualizar_resultado(id_user, fk_personagem) { //
+function atualizar_resultado(id_user,fk_personagem) { //
     var instrucaoSql =`
     update usuario set fk_resultado = ? where id_usuario = ?;
 `;

@@ -5,8 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Controle</title>
     <link rel="stylesheet" href="css/dash.css">
+    <link rel="stylesheet" href="navbar.css">
 </head>
 <body>
+
+    <div id="navbar"></div>
 
     <div class="container_painel">
 
@@ -25,19 +28,19 @@
             <div class="card_kpi">
                 <span class="card_kpi_titulo">Nota média da avaliação</span>
                 <span class="card_kpi_valor">10</span>
-                <div class="card_kpi_icone">★</div>
+                <div class="card_kpi_icone"><img src="assets/imgs/img_dash/star.png" alt=""></div>
             </div>
 
             <div class="card_kpi">
                 <span class="card_kpi_titulo">Quantidade de Cadastros</span>
                 <span class="card_kpi_valor">10</span>
-                <div class="card_kpi_icone">★👤</div>
+                <div class="card_kpi_icone"><img src="assets/imgs/img_dash/user.png" alt=""></div>
             </div>
 
             <div class="card_kpi">
                 <span class="card_kpi_titulo">Quantidade de Avaliações</span>
                 <span class="card_kpi_valor">10</span>
-                <div class="card_kpi_icone">👤</div>
+                <div class="card_kpi_icone"><img src="assets/imgs/img_dash/businessman.png" alt=""></div>
             </div>
 
             <div class="card_kpi">
@@ -90,4 +93,14 @@
     </div>
 
 </body>
+<script>
+
+      fetch("navbar.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+      });
+
+
+</script>
 </html>

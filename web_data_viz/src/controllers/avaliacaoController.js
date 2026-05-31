@@ -4,17 +4,17 @@ var avaliacaoModel = require("../models/avaliacaoModel");
 
 function cadastrar_nota(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nota = req.body.notaServer;
-    var fk_usuario = req.body.fk_usuarioServer
+    var nota_selecionada = req.params.nota_selecionada;
+    var id_user = req.params.id_user
 
     // Faça as validações dos valores
-    if (nota_final == undefined) {
+    if (nota_selecionada == undefined) {
         res.status(400).send("Sua nota está undefined!");
 
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        avaliacaoModel.cadastrar_nota(nota, fk_usuario)
+        avaliacaoModel.cadastrar_nota(nota_selecionada, id_user)
             .then(
                 function (resultado) {
                     res.json(resultado);

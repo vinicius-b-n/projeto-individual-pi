@@ -125,7 +125,7 @@
                     <span onclick="selecionar_nota(5)" class="estrela">★</span>
                 </div>
                 <div class="botao_avaliar">
-                    <button onclick="enviar()"><b>Enviar</b></button>
+                    <button onclick="enviar_nota()"><b>Enviar</b></button>
                 </div>
             </div>
         </div>
@@ -133,7 +133,12 @@
             <div class="resultado_conteudo">
                 <div class="resultado_texto">
                     <h1 class="titulo_resultado">A Determinação Corajosa</h1>
-                    <p>Se você tirou a Maka, você é a espinha dorsal de qualquer grupo. Organizada, focada e extremamente confiável, você é aquela pessoa que estuda o terreno antes de pisar. Para você, a biblioteca ideal é sinônimo de foco, e a bagunça (tanto física quanto mental) te irrita profundamente. Seu perfeccionismo pode ser uma cobrança pesada às vezes, mas é também o que te torna uma estrategista brilhante. Diante da pressão, você não foge: você analisa, cria um plano e lidera com coragem.</p>
+                    <p>Se você tirou a Maka, você é a espinha dorsal de qualquer grupo. Organizada, focada e
+                        extremamente confiável, você é aquela pessoa que estuda o terreno antes de pisar. Para você, a
+                        biblioteca ideal é sinônimo de foco, e a bagunça (tanto física quanto mental) te irrita
+                        profundamente. Seu perfeccionismo pode ser uma cobrança pesada às vezes, mas é também o que te
+                        torna uma estrategista brilhante. Diante da pressão, você não foge: você analisa, cria um plano
+                        e lidera com coragem.</p>
                     <h2>User e Maka Dividem Semelhança de Alma</h2>
                 </div>
                 <div class="resultado_imagem">
@@ -158,7 +163,7 @@
     var fk_personagem = sessionStorage.getItem("FK_PERSONAGEM"); //
     var personagem = 0; //
 
-    console.log(`personagem_id:`, fk_personagem); //
+    console.log(fk_personagem); //
 
 
 
@@ -475,6 +480,8 @@
             tela_resultado.style.display = "flex"
             console.log('olhaaaaaaaaaaaaaaaaaaaaaa');
 
+
+
             var lista_resultado = [maka_point, soul_point, star_point, tsubaki_point, kid_point, liz_point, patty_point, crona_point]
             let maior = lista_resultado[0]
             let fk_personagem = 0
@@ -499,9 +506,9 @@
             fk_personagem = maiores_resultados[sorteio_personalidade]
             console.log(fk_personagem)
 
+            fk_personagem = fk_personagem + 1
 
-
-
+            sessionStorage.setItem('FK_PERSONAGEM', fk_personagem)
 
             fetch(`/quiz/atualizar_resultado/${id_user}/${fk_personagem}`, {
                 method: "POST"
@@ -536,8 +543,25 @@
         }
 
         console.log("Nota escolhida:", nota_selecionada);
-    }
 
+    }
+ 
+    
+    
+
+    function enviar_nota() {
+        // nota_selecionada.toString()
+        fetch(`/avaliacao/cadastrar_nota/${nota_selecionada}/${id_user}`, {
+            method: "POST"
+        })
+            .then((response) => response.json())
+            .then(() => { console.log("funcionou") })
+            .catch((error) =>
+                console.error("erro ao salvar resultado", error)
+            );
+
+            
+    }
 
 </script>
 
