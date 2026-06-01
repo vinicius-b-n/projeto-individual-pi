@@ -48,11 +48,34 @@
 
   <script>
 
-    fetch("navbar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
+//navbar inicio
+fetch("navbar.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("navbar").innerHTML = data;
+
+    atualizarNavbar(); 
+  });
+
+
+function atualizarNavbar() {
+  var id_user = sessionStorage.getItem("ID_USUARIO");
+  
+  var botao_login = document.getElementById("login");
+  var botao_cadastro = document.getElementById("cadastro");
+  var botao_sair = document.getElementById("sair");
+
+    if (id_user != null && Number(id_user) >= 1) {
+      botao_login.style.display = "none";
+      botao_cadastro.style.display = "none";
+      botao_sair.style.display = "block";
+    } else {
+      botao_login.style.display = "block";
+      botao_cadastro.style.display = "block";
+      botao_sair.style.display = "none";
+    }
+}
+//navbar fim
 
       
     // function logar() {
@@ -137,6 +160,12 @@
                     sessionStorage.setItem('ID_USUARIO', json.id.toString())
                     // sessionStorage.setItem('FK_PERSONAGEM', json.personagem.toString())
                     
+                    if (sessionStorage.ID_USUARIO == 1) {
+                      window.location = "dash.html"
+                    }
+                    else if (sessionStorage.ID_USUARIO == 12) {
+                      window.location = "dash.html"
+                    }
 
                     setTimeout(function () {
                         window.location = "personagens.html";

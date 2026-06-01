@@ -103,7 +103,7 @@ body {
 }
 
 .conteudo_inicial {
-  display: flex;
+ display: none;      /* comentariooooooooooooooooooooooo */
   position: relative;
   flex-direction: row;
   align-items: center;
@@ -406,7 +406,7 @@ ul li::marker {
 .resultado {
   width: 100%;
   height: 100%;
-  display: none ;
+  display: flex ;
   align-items: center;
   justify-content: center;
   background-color: black;

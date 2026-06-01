@@ -47,11 +47,41 @@
 
       console.log(email, id_user);
 
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
+//navbar inicio
+fetch("navbar.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("navbar").innerHTML = data;
+
+    atualizarNavbar(); 
+  });
+
+
+function atualizarNavbar() {
+  var id_user = sessionStorage.getItem("ID_USUARIO");
+  
+  var botao_login = document.getElementById("login");
+  var botao_cadastro = document.getElementById("cadastro");
+  var botao_sair = document.getElementById("sair");
+
+    if (id_user != null && Number(id_user) >= 1) {
+      botao_login.style.display = "none";
+      botao_cadastro.style.display = "none";
+      botao_sair.style.display = "block";
+    } else {
+      botao_login.style.display = "block";
+      botao_cadastro.style.display = "block";
+      botao_sair.style.display = "none";
+    }
+}
+//navbar fim
+
+
+function encerrar() {
+  sessionStorage.clear();
+  window.location.reload();
+}
+
 
       function carregar_personagens() {
         fetch("/personagens/exibir_personagens") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController
@@ -93,6 +123,7 @@
         }); // CORREÇÃO 1: Fechamento correto do forEach.forEach((personagem) => { ... })
       }
 
+      
       carregar_personagens();
     </script>
   </body>

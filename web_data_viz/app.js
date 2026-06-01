@@ -24,6 +24,7 @@ var medidasRouter = require("./src/routes/medidas");
 var personagensRouter = require("./src/routes/personagens")
 var quizRouter = require("./src/routes/quiz")
 var avaliacaoRouter = require("./src/routes/avaliacao")
+var dashRouter = require("./src/routes/dash")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -40,6 +41,7 @@ app.use("/medidas", medidasRouter);
 app.use("/personagens", personagensRouter); //tudo que vc colocar em personagens router, tem que conter "/personagens" se for usar um fech
 app.use("/quiz", quizRouter);
 app.use("/avaliacao", avaliacaoRouter);
+app.use("/dash", dashRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

@@ -171,7 +171,7 @@
 
   <div class="cards_agradecimento">
     <div class="card_negri">
-      <img src="assets/imgs/img_autor/img_agradecimentos/obrigado7.png" alt="">
+      <img src="assets/imgs/img_autor/img_agradecimentos/obrigado_amg.png" alt="">
       <h1><b>Eduardo Negri 🕊️</b> <br>Obrigado Negri, te conhecer foi um presente e tanto.<br> <i>"Um homem quando esta em paz
 não quer guerra com ninguém…"</i></h1>
     </div>
@@ -180,11 +180,34 @@ não quer guerra com ninguém…"</i></h1>
   </div>
 </body>
 <script>
-  fetch("navbar.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("navbar").innerHTML = data;
-    });
+  //navbar inicio
+fetch("navbar.html")
+  .then((response) => response.text())
+  .then((data) => {
+    document.getElementById("navbar").innerHTML = data;
+
+    atualizarNavbar(); 
+  });
+
+
+function atualizarNavbar() {
+  var id_user = sessionStorage.getItem("ID_USUARIO");
+  
+  var botao_login = document.getElementById("login");
+  var botao_cadastro = document.getElementById("cadastro");
+  var botao_sair = document.getElementById("sair");
+
+    if (id_user != null && Number(id_user) >= 1) {
+      botao_login.style.display = "none";
+      botao_cadastro.style.display = "none";
+      botao_sair.style.display = "block";
+    } else {
+      botao_login.style.display = "block";
+      botao_cadastro.style.display = "block";
+      botao_sair.style.display = "none";
+    }
+}
+//navbar fim
 </script>
 
 </html>

@@ -38,6 +38,13 @@ body {
     color: #ffffff;                
 }
 
+#nome_usuario{
+    color: #ffffff;
+    margin-left: 5px;
+    font-weight: bold;
+    /* font-size: 20px; */
+}
+
 .botao_sair {
     background-color: transparent;
     color: #ff4444;
@@ -64,6 +71,7 @@ body {
     margin-bottom: 30px;
     color: white;
 }
+
 
 .titulo_painel {
     font-size: 28px;
@@ -104,14 +112,13 @@ body {
     font-size: 12px;
     font-weight: bold;
     color: #333333;
-    min-height: 34px;               
     margin-bottom: 5px;
 }
 
 .card_kpi_valor {
     font-size: 32px;
     font-weight: bold;
-    font-size: 22px;
+    /* font-size: 22px; */
 }
 
 .card_kpi_icone img{
@@ -122,8 +129,9 @@ body {
 
 }
 
-.card_kpi_valor span{
-    font-size: 30px; color: #b31d1d;
+.card_kpi_valor_2{
+    font-size: 32px; color: #b31d1d;
+    font-weight: bold;
 }
 
 /*card graficps*/
@@ -177,13 +185,15 @@ body {
 }
 
 .coluna_grafico_principal {
-    width: 660px; 
+    width: 960px; 
     display: flex;
     flex-direction: column;
     
 }
 
-
+#area_grafico_resultados{
+    width: 100%;
+}
 
 /* cards avaliacao */
 .card_avaliacao {
