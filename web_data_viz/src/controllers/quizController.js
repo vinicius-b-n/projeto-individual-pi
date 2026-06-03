@@ -2,7 +2,8 @@ var quizModel = require("../models/quizModel");
 
 
 function buscar_resultado(req, res) {
-    quizModel.buscar_resultado()
+    var fk_personagem = req.params.fk_personagem
+    quizModel.buscar_resultado(fk_personagem)
     .then((resultado) => {
         res.json(resultado)
     }).catch((erro) => {

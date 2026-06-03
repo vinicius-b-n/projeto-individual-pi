@@ -1,12 +1,12 @@
 var database = require("../database/config")
 
-function buscar_resultado() {
+function buscar_resultado(fk_personagem) {
     // console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
-    select id_resultado, titulo, descricao, fk_personagens, url_imagem from resultado;
+    select id_resultado, titulo, descricao, fk_personagens, url_imagem from resultado where id_resultado = ?;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    return database.executar(instrucaoSql, [fk_personagem]);
 }
 
 function buscar_perguntas_respostas() {

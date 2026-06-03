@@ -29,7 +29,7 @@
                 <div class="botao">
                     <button onclick="cadastrar()"><b>Fazer Cadastro</b></button>
                     <button onclick="logar()"><b>Fazer Login</b></button>
-                    <button onclick="ter()">tenho</button>
+                    <!-- <button onclick="ter()">tenho</button> -->
                 </div>
             </div>
         </div>
@@ -53,15 +53,15 @@
                             </h3>
                             <br>
                             <p>
-                                O modelo de ensino da nossa escola AMAAN, prezamos muito pela
+                                No modelo de ensino da nossa escola AMAAN, prezamos muito pela
                                 personalidade individual de cada um. Por isso nessa parte da
-                                aplicação pedimos que vove siga as instrucoes a baixo para
-                                melhor experiencia: <br><br>
+                                aplicação pedimos que você siga as instruções a baixo para
+                                melhor experiência: <br><br>
 
                             <ul>
-                                <li>Responda sinceramente as perguntas para que o resultado seja mais preciso com um de
+                                <li>Responda sinceramente as perguntas para que o resultado seja o mais compátivel com um de
                                     nossos alunos</li>
-                                <li>As perguntas só podem ser respondidas uma vez, ápos avançar não é possivel voltar a
+                                <li>As perguntas só podem ser respondidas uma vez, após avançar não é possivel voltar a
                                     questao anterior</li>
                                 <li>O quiz apenas poderá ser respondido uma única vez, após ser definida uma
                                     personalidade
@@ -129,45 +129,99 @@
                 </div>
             </div>
         </div>
-        <div class="resultado">
-            <div class="resultado_conteudo">
-                <div class="resultado_texto">
-                    <h1 class="titulo_resultado">A Determinação Corajosa</h1>
-                    <p>Se você tirou a Maka, você é a espinha dorsal de qualquer grupo. Organizada, focada e
-                        extremamente confiável, você é aquela pessoa que estuda o terreno antes de pisar. Para você, a
-                        biblioteca ideal é sinônimo de foco, e a bagunça (tanto física quanto mental) te irrita
-                        profundamente. Seu perfeccionismo pode ser uma cobrança pesada às vezes, mas é também o que te
-                        torna uma estrategista brilhante. Diante da pressão, você não foge: você analisa, cria um plano
-                        e lidera com coragem.</p>
-                    <h2>User e Maka Dividem Semelhança de Alma</h2>
-                </div>
-                <div class="resultado_imagem">
-                    <img src="assets/imgs/img_quiz/resultado_quiz/maka_manga.avif" alt="">
-                </div>
-            </div>
+        <div class="resultado" id="resultado" style="display: none;">
+    <div class="resultado_conteudo">
+        <div class="texto">
+            <h1 id="titulo_resultado">O grandioso amigo</h1>
+            <p id="texto_resultado">Se você tirou a Patty, a rotina é a sua maior inimiga e o parque de diversões é o seu lar espiritual...</p>
+        </div>
+        <div class="imagem" id="imagem">
+            <img src="assets/imgs/img_quiz/resultado_quiz/resultado_soul.jpg" alt="">
         </div>
     </div>
-
-
-
-
-
+</div>
 
 
 </body>
+
 <script>
-
     var id_user = sessionStorage.getItem("ID_USUARIO");
-    console.log(Number(id_user));
+    console.log("ID do Usuário:", Number(id_user));
 
-    var fk_personagem = sessionStorage.getItem("FK_PERSONAGEM"); //
-    var personagem = 0; //
-
-    console.log(fk_personagem); //
+    var fk_personagem = sessionStorage.getItem("FK_PERSONAGEM"); 
+    console.log("FK Personagem:", fk_personagem); 
 
 
+    if (id_user === null || id_user === "null" || id_user === "") {
+        //NAO TEM LOGIN
+        document.getElementById("bloqueado_background").style.display = "flex";
+        document.getElementById("conteudo_inicial").style.display = "none";
+        document.getElementById("resultado").style.display = "none";
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("tela_resultado").style.display = "none";
+    } 
+    else if (fk_personagem === null || fk_personagem === "null" || fk_personagem === "" || fk_personagem === undefined) {
+        // TEM LOGIN, MAS NÃO TEM PERSONAGEM
+        document.getElementById("bloqueado_background").style.display = "none";
+        document.getElementById("conteudo_inicial").style.display = "flex"; 
+        document.getElementById("resultado").style.display = "none";
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("tela_resultado").style.display = "none";
+    } 
+    else {
+        // JÁ TEM LOGIN E JÁ FEZ O QUIZ
+        document.getElementById("bloqueado_background").style.display = "none";
+        document.getElementById("conteudo_inicial").style.display = "none";
+        document.getElementById("resultado").style.display = "flex"; 
+        document.getElementById("quiz").style.display = "none";
+        document.getElementById("tela_resultado").style.display = "none";
+    }
 
-//navbar inicio
+    if (fk_personagem == 1) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_maka.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "A Determinação Corajosa";
+            document.getElementById("texto_resultado").innerHTML = "Se você tirou a Maka, você é a espinha dorsal de qualquer grupo. Organizada, focada e extremamente confiável, você é aquela pessoa que estuda o terreno antes de pisar. Para você, a biblioteca ideal é sinônimo de foco, e a bagunça (tanto física quanto mental) te irrita profundamente. Seu perfeccionismo pode ser uma cobrança pesada às vezes, mas é também o que te torna uma estrategista brilhante. Diante da pressão, você não foge: você analisa, cria um plano e lidera com coragem.";
+        }
+    if (fk_personagem == 2) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_soul.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "O Descolado por Natureza";
+            document.getElementById("texto_resultado").innerHTML = "Tirar o Soul significa que você exala uma vibe naturalmente cool e marcante. Você não precisa se esforçar para ser notado; seu estilo e sua lealdade falam por si mesmos. Embora compartilhe o espírito impulsivo e o orgulho de quem vai direto para o ataque, você tem uma maturidade protetora por trás dessa fachada desinteressada. Você detesta ser ignorado ou parecer vulnerável, mas quando a pressão aperta, você vai para cima com tudo para proteger quem importa para você.";
+        }
+    if (fk_personagem == 3) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_star.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "O Dono do Palco";
+            document.getElementById("texto_resultado").innerHTML = "Se o seu resultado deu Black Star, você não veio ao mundo a passeio; você veio para transcender Deus! Você tem uma personalidade vibrante, uma autoconfiança inabalável e uma energia que simplesmente não pode ser ignorada. Às vezes as pessoas acham que você tem o ego inflado, mas a verdade é que você apenas conhece o seu próprio valor e não tem medo de brilhar. Em trabalhos ou combates, você prefere a ação direta e odeia ficar nas sombras. Seu lema é literalmente ser o centro das atenções, e sua determinação é sua maior força.";
+        }       
+
+        if (fk_personagem == 4) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_tsubaki.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "A Calmaria e o Suporte";
+            document.getElementById("texto_resultado").innerHTML = "Se o seu resultado foi a Tsubaki, você é o porto seguro de todos ao seu redor. Paciente, reservada e incrivelmente madura, você prefere agir na surdina, esperando o momento exato para fazer a sua parte sem precisar de aplausos. Conflitos te desgastam, e você prefere a harmonia de um lugar silencioso. Sua maior virtude é a empatia e a confiabilidade: você consegue lidar até com as personalidades mais difíceis (como o Black Star) com uma graça e uma calmaria invejáveis.";
+        }
+                if (fk_personagem == 5) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_kid.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "A Busca pela Simetria Espiritual";
+            document.getElementById("texto_resultado").innerHTML = "Se o seu resultado foi o Kid, o mundo ideal para você precisa ser perfeitamente equilibrado e fazer absoluto sentido. Seu perfeccionismo é lendário (e às vezes um pouco obsessivo), o que te torna incrivelmente detalhista e organizado. Você é o tipo de pessoa que assume a liderança do grupo para garantir que tudo saia impecável. Bagunça e assimetria te tiram do sério, mas a sua capacidade analítica e o seu senso de justiça fazem de você um aliado extraordinário e de extrema confiança.";
+        }
+                if (fk_personagem == 6) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_liz.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "A Voz da Realidade com Estilo";
+            document.getElementById("texto_resultado").innerHTML = "Tirar a Liz significa que você traz o equilíbrio perfeito entre querer curtir a vida e ter os pés no chão. Embora adore a diversão e deteste a rotina monótona, você tem um lado urbano, descolado e prático. Sua impulsividade às vezes fala mais alto, e você pode agir sem pensar muito quando está sob pressão, mas você sabe improvisar como ninguém. Você prefere ambientes vibrantes, odeia drama desnecessário e é aquela amiga estilosa que sempre diz a verdade na cara, doa a quem doer.";
+        }
+                if (fk_personagem == 7) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/resultado_patty.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "O Caos Divertido";
+            document.getElementById("texto_resultado").innerHTML = "Se você tirou a Patty, a rotina é a sua maior inimiga e o parque de diversões é o seu lar espiritual. Você é pura imprevisibilidade, alegria e impulsividade. Seus amigos te acham a pessoa mais divertida do mundo porque você simplesmente vai ver no que dá e improvisa o caminho inteiro. Diante da pressão ou no combate, suas reações são completamente inesperadas, o que assusta os inimigos e diverte os aliados. Você vive a vida com leveza e um sorriso no rosto.";
+        }
+                        if (fk_personagem == 8) {
+            document.getElementById("imagem").innerHTML = '<img src="assets/imgs/img_quiz/resultado_quiz/crona_resultado.jpg" alt="Resultado Kid">';
+            document.getElementById("titulo_resultado").innerHTML = "A Busca pela Paz Interior";
+            document.getElementById("texto_resultado").innerHTML = "Tirar a Crona significa que você tem uma alma sensível, profunda e que preza pelo silêncio e pela tranquilidade acima de tudo. A insegurança e a hesitação diante da pressão são seus maiores desafios, fazendo com que você prefira se isolar em lugares calmos a encarar conflitos barulhentos. No entanto, sua natureza reservada esconde uma força silenciosa. No momento certo, quando você encontra seu equilíbrio, é capaz de demonstrar uma resiliência surpreendente. Tudo o que você quer é paz.";
+        }
+    
+
+
+
 fetch("navbar.html")
   .then((response) => response.text())
   .then((data) => {
@@ -194,12 +248,19 @@ function atualizarNavbar() {
       botao_sair.style.display = "none";
     }
 }
+
+
+
+function encerrar() {
+  sessionStorage.clear();
+  window.location.reload();
+}
 //navbar fim
 
-    if (id_user != null) {
-        bloqueado_background.style.display = "none"
+// if (id_user != null) {
+//         bloqueado_background.style.display = "none"
 
-    }
+//     }
 
     function ter() {
         bloqueado_background.style.display = "none"
@@ -541,6 +602,17 @@ function atualizarNavbar() {
                 .catch((error) =>
                     console.error("erro ao salvar resultado", error)
                 );
+
+            //     fetch(`/quiz/buscar_resultado/${fk_personagem}`)
+            //     .then((response) => response.json())
+            //     .then(() => { console.log("funcionou") })
+            //     .catch((error) =>
+            //         console.error("erro ao buscar resultado", error)
+            //     );
+
+            
+
+
         }
 
     }
@@ -568,9 +640,9 @@ function atualizarNavbar() {
         console.log("Nota escolhida:", nota_selecionada);
 
     }
- 
-    
-    
+
+
+
 
     function enviar_nota() {
         // nota_selecionada.toString()
@@ -583,7 +655,7 @@ function atualizarNavbar() {
                 console.error("erro ao salvar resultado", error)
             );
 
-            
+        window.location.reload();
     }
 
 </script>

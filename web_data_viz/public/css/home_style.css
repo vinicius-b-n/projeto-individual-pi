@@ -2,7 +2,7 @@
 /*font-family: "Henny Penny", system-ui;*/
 
 * {
-     outline: 1px solid rgb(0, 72, 255);  
+     /* outline: 1px solid rgb(0, 72, 255);   */
     margin: 0;
     padding: 0; 
     box-sizing: border-box;
@@ -181,7 +181,15 @@ body {
   border-radius: 10px;
   font-size: 20px;
   text-align: center;
+  padding: 6px;
   
+}
+
+.texto_informativo i {
+    font-size: 20px;
+  text-align: center;
+  padding: 6px;
+  font-weight: lighter;
 }
 
 .topo {

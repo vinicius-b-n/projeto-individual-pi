@@ -48,7 +48,6 @@
 
   <script>
 
-//navbar inicio
 fetch("navbar.html")
   .then((response) => response.text())
   .then((data) => {
@@ -74,6 +73,13 @@ function atualizarNavbar() {
       botao_cadastro.style.display = "block";
       botao_sair.style.display = "none";
     }
+}
+
+
+
+function encerrar() {
+  sessionStorage.clear();
+  window.location.reload();
 }
 //navbar fim
 

@@ -176,4 +176,16 @@ select {
   background-color: darkred;
   height: 300px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  margin-top: 20px;
+}
+
+.shinigami_chamado p {
+  font-size: 30px;
+  margin: 10px;
+  color: white;
+  font-weight: bold;
 }

@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Henny+Penny&family=League+Spartan:wght@100..900&family=Playwrite+NO:wght@100..400&display=swap');
 
 * {
-  outline: 1px solid rgb(0, 72, 255);
+  /*   */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -54,6 +54,7 @@
   height: 270px;
   width: 800px;
   border: 3px solid black;
+  padding: 10px;
 }
 
 .texto h1 {
@@ -63,8 +64,12 @@
 }
 
 .texto p {
-  font-size: 22px;
-  word-break: break-all;
+  /* font-size: 22px; */
+  /* word-break: break-all; */
+  font-size: 17px;
+    overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .botao {
@@ -103,7 +108,7 @@ body {
 }
 
 .conteudo_inicial {
- display: none;      /* comentariooooooooooooooooooooooo */
+ display: flex;      /* comentariooooooooooooooooooooooo */
   position: relative;
   flex-direction: row;
   align-items: center;
@@ -406,56 +411,36 @@ ul li::marker {
 .resultado {
   width: 100%;
   height: 100%;
-  display: flex ;
+  display: none ;
   align-items: center;
   justify-content: center;
   background-color: black;
+  flex-direction: row;
 }
 
-.resultado_conteudo {
-  height: 87%;
-   width: 100%;
-  display: flex;
+.resultado_conteudo{
+    width: 100%;
+  height: 80%;
+  background-color: darkred;
+  margin-top: 100px;
+    display: flex ;
   align-items: center;
   justify-content: center;
-  margin-top: 90px;
-  background-color: purple;
+border: 10px gold solid;
+  flex-direction: row;
 }
 
-.resultado_texto{
-  height: 600px;
-  width: 800px;
-    display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+.imagem{
+  width: 500px;
+  height: 500px;
+  margin-left: 50px;
+  border: 10px gold dashed ;
 }
 
-
-.titulo_resultado{
-font-family: "League Spartan", sans-serif;
-background-color: white;
-border: white solid 20px;
-width: 300px;
+.imagem img{
+  width: 100%;
+  height: 100%;
 }
-
-
 
 /* ------------------ */
 
-.resultado_imagem{
-  border: white 6px solid;
-      display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.resultado_imagem img{
-  width: 450px;
-  height: 100%;
-  aspect-ratio: 3 / 4; 
-  object-fit: cover; 
-  object-position: center;
-  border: black 6px solid;
-}

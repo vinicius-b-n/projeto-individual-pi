@@ -34,7 +34,8 @@
     </div>
 
     <div class="shinigami_chamado">
-      
+      <img src="assets/imgs/img_autentificacao/shinigami_cadastro.png" alt="">
+      <p>Quantas figuras não é mesmo? como eu adoro a diversidade do nosso vasto universo, cada um com sua própria identidade e pensamentos, sem dúvidas não há uma figura como a outra isso é fascinante!!! Quer saber com qual você se assemelha mais?? acesse a área "Quiz" na nossa navbar e descubra qual personagem tem uma onda de alma parecida com a sua!!!</p>
     </div>
 
     <script>
@@ -74,14 +75,14 @@ function atualizarNavbar() {
       botao_sair.style.display = "none";
     }
 }
-//navbar fim
+
 
 
 function encerrar() {
   sessionStorage.clear();
   window.location.reload();
 }
-
+//navbar fim
 
       function carregar_personagens() {
         fetch("/personagens/exibir_personagens") //caminho para rotas, onde na rota (personagem.js) ele define que "/exibir_personagens" é o mesmo que chamar o personagensController

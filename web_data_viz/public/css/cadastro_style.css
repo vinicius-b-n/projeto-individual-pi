@@ -30,7 +30,7 @@
 
 
 * {
-    outline: 1px solid rgb(0, 72, 255); 
+    /* outline: 1px solid rgb(0, 72, 255);  */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -175,7 +175,7 @@ body{
 }
 
 .shinigami img {
-
+  width: 100%;
 }
 
 .shinigami_msg{

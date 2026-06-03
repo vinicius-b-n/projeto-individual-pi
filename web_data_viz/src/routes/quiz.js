@@ -4,7 +4,7 @@ var router = express.Router();
 var quizController = require("../controllers/quizController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
-router.get("/buscar_resultado", function (req, res) {
+router.get("/buscar_resultado/:fk_personagem", function (req, res) {
     quizController.buscar_resultado(req, res);
 })
 
