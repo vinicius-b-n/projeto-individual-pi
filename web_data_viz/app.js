@@ -1,5 +1,5 @@
-var ambiente_processo = 'producao';
-// var ambiente_processo = 'desenvolvimento';
+// var ambiente_processo = 'producao';
+var ambiente_processo = 'desenvolvimento';
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
 // Acima, temos o uso do operador ternário para definir o caminho do arquivo .env
@@ -38,7 +38,7 @@ app.use("/avisos", avisosRouter);
 app.use("/medidas", medidasRouter);
 // app.use("/aquarios", aquariosRouter);
 // app.use("/empresas", empresasRouter);
-app.use("/personagens", personagensRouter); //tudo que vc colocar em personagens router, tem que conter "/personagens" se for usar um fech
+app.use("/personagens", personagensRouter); //tudo que colocar na rota tem que ter /personagens se for usar um fech
 app.use("/quiz", quizRouter);
 app.use("/avaliacao", avaliacaoRouter);
 app.use("/dash", dashRouter);
